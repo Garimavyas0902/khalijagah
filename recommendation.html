@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Career Recommendation Result</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 700px;
+            margin: auto;
+            padding: 20px;
+            background-color: #f0f8ff;
+        }
+
+        h1 {
+            text-align: center;
+            color: #1976d2;
+            margin-bottom: 30px;
+        }
+
+        .recommendation-box {
+            background: #ffffff;
+            padding: 25px;
+            border-left: 5px solid #2196f3;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+            margin-top: 30px;
+        }
+
+        ol {
+            padding-left: 20px;
+        }
+
+        li {
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+
+        .error-box {
+            background-color: #ffebee;
+            color: #d32f2f;
+            padding: 15px;
+            border: 1px solid #d32f2f;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+
+        .button-container {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        button {
+            background-color: #2196f3;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #1976d2;
+        }
+    </style>
+</head>
+<body>
+    <h1>Your Career Recommendation</h1>
+    {% if recommendation %}
+        <div class="recommendation-box">
+            <h2>Recommended Careers:</h2>
+            {{ recommendation | safe }}
+        </div>
+        <div class="button-container">
+            <a href="{{ url_for('download_pdf') }}">
+                <button>Download PDF</button>
+            </a>
+        </div>
+    {% elif error %}
+        <div class="error-box">
+            <h2>Error</h2>
+            <p>{{ error }}</p>
+        </div>
+    {% else %}
+        <p>No recommendation available.</p>
+    {% endif %}
+</body>
+</html>

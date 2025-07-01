@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Career Recommendation</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            max-width: 700px;
+            margin: auto;
+            padding: 20px;
+            background: linear-gradient(to right, #e0f7fa, #ffffff);
+        }
+    
+        h1 {
+            text-align: center;
+            color: #0277bd;
+            margin-bottom: 30px;
+        }
+    
+        form {
+            background: #ffffff;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            border-top: 6px solid #0288d1;
+        }
+    
+        label {
+            font-weight: bold;
+            color: #01579b;
+            display: block;
+            margin-bottom: 5px;
+        }
+    
+        input[type="text"],
+        input[type="number"],
+        input[type="date"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #b0bec5;
+            border-radius: 6px;
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+    
+        input[type="text"]:focus,
+        input[type="number"]:focus,
+        input[type="date"]:focus {
+            border-color: #0288d1;
+            box-shadow: 0 0 5px rgba(2, 136, 209, 0.3);
+            outline: none;
+        }
+    
+        button {
+            background-color: #0288d1;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+    
+        button:hover {
+            background-color: #0277bd;
+        }
+    
+        .recommendation-box {
+            background: #ffffff;
+            padding: 25px;
+            border-left: 5px solid #0288d1;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+            margin-top: 30px;
+        }
+    
+        .recommendation-box h2 {
+            color: #01579b;
+        }
+    
+        ol {
+            padding-left: 20px;
+            color: #333;
+        }
+    
+        li {
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+    </style>
+    
+</head>
+<body>
+    <h1>Find Your Ideal Career</h1>
+    {% if username %}
+        <p>Welcome, {{ username }}!</p>
+    {% endif %}
+
+    <form method="POST" action="{{ url_for('process') }}">
+        <label>Name:</label><br>
+        <input type="text" name="name" required><br>
+
+        <label>Birthdate:</label><br>
+        <input type="date" name="birthdate" required><br>
+        
+
+        <label>Education Level:</label><br>
+        <input type="text" name="education" required><br>
+
+        <label>Top Skills (comma-separated):</label><br>
+        <input type="text" name="skills" required><br>
+
+        <label>Interests / Hobbies:</label><br>
+        <input type="text" name="interests" required><br>
+
+        <button type="submit">Get Career Advice</button>
+    </form>
+
+    {% if recommendation %}
+        <div class="recommendation-box">
+            <h2>Recommended Careers:</h2>
+            {{ recommendation | safe }}
+        </div>
+    {% endif %}
+</body>
+</html>

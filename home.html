@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Jobmate.ai - Find Jobs by Your Skills</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        /* General Reset & Font */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            transition: all 0.3s ease-in-out; /* Smooth transitions for hover effects */
+        }
+
+        body {
+            background: linear-gradient(135deg, #a8dadc 0%, #457b9d 100%); /* Modern gradient background */
+            color: #fff; /* Light text on dark background */
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            overflow-x: hidden; /* Prevent horizontal scroll */
+        }
+
+        header {
+            background: #2c3e50; /* Darker, professional header */
+            color: #ecf0f1; /* Lighter text for contrast */
+            padding: 50px 30px;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        header h1 {
+            font-size: 3.5rem; /* Even larger title */
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4); /* Stronger text shadow */
+            letter-spacing: 1.5px;
+            color: #f39c12; /* Accent color for the title */
+        }
+
+        header p {
+            font-size: 1.6rem;
+            opacity: 0.95;
+            color: #d4ac0d; /* Slightly different shade for the tagline */
+        }
+
+        .container {
+            padding: 60px 30px;
+            max-width: 950px; /* Slightly wider container */
+            margin: 40px auto;
+            background-color: rgba(255, 255, 255, 0.95); /* Less transparent white */
+            border-radius: 12px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18); /* More pronounced shadow */
+            color: #34495e; /* Darker text on light container */
+        }
+
+        .about-us {
+            padding: 40px;
+        }
+
+        .about-us h2 {
+            margin-bottom: 25px;
+            color: #3498db; /* Vibrant blue for headings */
+            font-size: 2.6rem;
+            border-bottom: 4px solid #3498db;
+            padding-bottom: 12px;
+        }
+
+        .about-us p {
+            line-height: 1.8;
+            font-size: 1.2rem;
+            color: #5e6e85; /* Slightly darker gray for body text */
+        }
+
+        .skip-button {
+            margin-top: 45px;
+            display: inline-block;
+            padding: 18px 35px;
+            background-color: #27ae60; /* Attractive green button */
+            color: white;
+            text-decoration: none;
+            border-radius: 10px;
+            font-weight: bold;
+            font-size: 1.3rem;
+            box-shadow: 0 3px 7px rgba(0, 0, 0, 0.15);
+            transition: background-color 0.3s ease, transform 0.2s ease-in-out, box-shadow 0.3s ease;
+        }
+
+        .skip-button:hover {
+            background-color: #219653; /* Darker shade on hover */
+            transform: translateY(-3px); /* More noticeable lift on hover */
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.25);
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1><span style="color:#f39c12;">Job</span>mate<span style="color:#f39c12;">.ai</span></h1>
+        <p style="color:#d4ac0d;">Unlock your career potential with skill-based job matching</p>
+    </header>
+
+    <div class="container">
+        <div class="about-us">
+            <h2><span style="color:#3498db;">Discover</span> Your Perfect Job</h2>
+            <p style="color:#5e6e85;">
+                <span style="font-weight: bold; color: #3498db;">Jobmate.ai</span> revolutionizes your job search by focusing on your unique skills and talents.
+                We understand that your abilities are what truly matter, and our platform is built to connect you
+                with employers who value those skills.
+            </p>
+            <p style="color:#5e6e85;">
+                Whether you're a seasoned professional or just starting your career journey, <span style="font-weight: bold; color: #3498db;">Jobmate.ai</span> provides
+                a personalized experience tailored to your strengths. Say goodbye to generic job boards and hello
+                to opportunities that genuinely align with what you can do.
+            </p>
+            <p style="color:#5e6e85;">
+                Explore diverse career paths in technology, healthcare, education, creative fields, and many more.
+                Our intelligent matching system learns your skills and preferences to present you with the most
+                relevant job openings.
+            </p>
+        </div>
+
+        <a href="{{ url_for('auth') }}" class="skip-button">Get Started & Find Your Match</a>
+    </div>
+
+</body>
+</html>

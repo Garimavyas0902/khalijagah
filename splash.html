@@ -1,0 +1,105 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Jobmate.ai Splash</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Montserrat:wght@400;600&family=Nunito:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box; 
+        }
+
+        body {
+            height: 100vh;
+            width: 100vw;
+            /* Updated background with a lighter gradient */
+            background: linear-gradient(135deg, #e0f2fe, #b0e0e6); /* Light blue gradient */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            overflow: hidden;
+        }
+
+        .logo-wrapper {
+            opacity: 0;
+            transform: translateY(30px) scale(0.95) rotate(20deg);
+            animation: logoPopUp 1.8s ease-out forwards;
+        }
+
+        .logo-wrapper img {
+            width: 500px;
+            height: 500px;
+            object-fit: contain;
+            filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.3));
+        }
+
+        .tagline {
+            font-size: 26px;
+            color: #0c3057;
+            margin-top: 20px;
+            opacity: 0;
+            transform: scale(0.8);
+            animation: taglineFadeIn 1.2s ease-out forwards, pulse 2s infinite alternate;
+            animation-delay: 1.6s;
+            text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.6);
+            font-family: 'Nunito', sans-serif; /* Apply the new font */
+            font-weight: 600;  /* Use a semi-bold weight for emphasis */
+            font-style: italic; /* added italic */
+        }
+
+        @keyframes logoPopUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px) scale(0.95) rotate(20deg);
+            }
+            50% {
+                opacity: 0.7;
+                transform: translateY(0) scale(1.1) rotate(0deg);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1) rotate(0deg);
+            }
+        }
+
+        @keyframes taglineFadeIn {
+            from {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        @keyframes pulse {
+            from {
+                transform: scale(1);
+            }
+            to {
+                transform: scale(1.04);
+            }
+        }
+    </style>
+    <script>
+        // Redirect after 5 seconds
+        setTimeout(function () {
+            window.location.href = "{{ url_for('home') }}";
+        }, 5000);
+    </script>
+</head>
+<body>
+    <div class="logo-wrapper">
+        
+        <img src="{{ url_for('static', filename='logo.jpg') }}" alt="jobmate logo"/>
+    </div>
+    <div class="tagline">Finding your dream job, made easy.</div>
+</body>
+</html>
